@@ -1,16 +1,16 @@
 
-// E310Doc.h : CE310Doc 类的接口
+// E310T2Doc.h : CE310T2Doc 类的接口
 //
 
 
 #pragma once
 
 
-class CE310Doc : public CDocument
+class CE310T2Doc : public CDocument
 {
 protected: // 仅从序列化创建
-	CE310Doc();
-	DECLARE_DYNCREATE(CE310Doc)
+	CE310T2Doc();
+	DECLARE_DYNCREATE(CE310T2Doc)
 
 // 特性
 public:
@@ -29,12 +29,14 @@ public:
 
 // 实现
 public:
-	virtual ~CE310Doc();
+	virtual ~CE310T2Doc();
 #ifdef _DEBUG
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;
 #endif
-
+	int A;
+	int B;
+	CString s;
 protected:
 
 // 生成的消息映射函数

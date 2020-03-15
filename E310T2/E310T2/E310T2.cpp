@@ -1,34 +1,34 @@
 
-// E310.cpp : 定义应用程序的类行为。
+// E310T2.cpp : 定义应用程序的类行为。
 //
 
 #include "stdafx.h"
 #include "afxwinappex.h"
 #include "afxdialogex.h"
-#include "E310.h"
+#include "E310T2.h"
 #include "MainFrm.h"
 
-#include "E310Doc.h"
-#include "E310View.h"
+#include "E310T2Doc.h"
+#include "E310T2View.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
 
 
-// CE310App
+// CE310T2App
 
-BEGIN_MESSAGE_MAP(CE310App, CWinApp)
-	ON_COMMAND(ID_APP_ABOUT, &CE310App::OnAppAbout)
+BEGIN_MESSAGE_MAP(CE310T2App, CWinApp)
+	ON_COMMAND(ID_APP_ABOUT, &CE310T2App::OnAppAbout)
 	// 基于文件的标准文档命令
 	ON_COMMAND(ID_FILE_NEW, &CWinApp::OnFileNew)
 	ON_COMMAND(ID_FILE_OPEN, &CWinApp::OnFileOpen)
 END_MESSAGE_MAP()
 
 
-// CE310App 构造
+// CE310T2App 构造
 
-CE310App::CE310App()
+CE310T2App::CE310T2App()
 {
 	// 支持重新启动管理器
 	m_dwRestartManagerSupportFlags = AFX_RESTART_MANAGER_SUPPORT_ALL_ASPECTS;
@@ -41,20 +41,20 @@ CE310App::CE310App()
 
 	// TODO: 将以下应用程序 ID 字符串替换为唯一的 ID 字符串；建议的字符串格式
 	//为 CompanyName.ProductName.SubProduct.VersionInformation
-	SetAppID(_T("E310.AppID.NoVersion"));
+	SetAppID(_T("E310T2.AppID.NoVersion"));
 
 	// TODO: 在此处添加构造代码，
 	// 将所有重要的初始化放置在 InitInstance 中
 }
 
-// 唯一的一个 CE310App 对象
+// 唯一的一个 CE310T2App 对象
 
-CE310App theApp;
+CE310T2App theApp;
 
 
-// CE310App 初始化
+// CE310T2App 初始化
 
-BOOL CE310App::InitInstance()
+BOOL CE310T2App::InitInstance()
 {
 	// 如果一个运行在 Windows XP 上的应用程序清单指定要
 	// 使用 ComCtl32.dll 版本 6 或更高版本来启用可视化方式，
@@ -99,9 +99,9 @@ BOOL CE310App::InitInstance()
 	CSingleDocTemplate* pDocTemplate;
 	pDocTemplate = new CSingleDocTemplate(
 		IDR_MAINFRAME,
-		RUNTIME_CLASS(CE310Doc),
+		RUNTIME_CLASS(CE310T2Doc),
 		RUNTIME_CLASS(CMainFrame),       // 主 SDI 框架窗口
-		RUNTIME_CLASS(CE310View));
+		RUNTIME_CLASS(CE310T2View));
 	if (!pDocTemplate)
 		return FALSE;
 	AddDocTemplate(pDocTemplate);
@@ -124,7 +124,7 @@ BOOL CE310App::InitInstance()
 	return TRUE;
 }
 
-int CE310App::ExitInstance()
+int CE310T2App::ExitInstance()
 {
 	//TODO: 处理可能已添加的附加资源
 	AfxOleTerm(FALSE);
@@ -132,7 +132,7 @@ int CE310App::ExitInstance()
 	return CWinApp::ExitInstance();
 }
 
-// CE310App 消息处理程序
+// CE310T2App 消息处理程序
 
 
 // 用于应用程序“关于”菜单项的 CAboutDlg 对话框
@@ -168,13 +168,13 @@ BEGIN_MESSAGE_MAP(CAboutDlg, CDialogEx)
 END_MESSAGE_MAP()
 
 // 用于运行对话框的应用程序命令
-void CE310App::OnAppAbout()
+void CE310T2App::OnAppAbout()
 {
 	CAboutDlg aboutDlg;
 	aboutDlg.DoModal();
 }
 
-// CE310App 消息处理程序
+// CE310T2App 消息处理程序
 
 
 

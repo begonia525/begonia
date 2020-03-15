@@ -1,5 +1,5 @@
 
-// E310.h : E310 应用程序的主头文件
+// E310T2.h : E310T2 应用程序的主头文件
 //
 #pragma once
 
@@ -10,14 +10,14 @@
 #include "resource.h"       // 主符号
 
 
-// CE310App:
-// 有关此类的实现，请参阅 E310.cpp
+// CE310T2App:
+// 有关此类的实现，请参阅 E310T2.cpp
 //
 
-class CE310App : public CWinApp
+class CE310T2App : public CWinApp
 {
 public:
-	CE310App();
+	CE310T2App();
 
 
 // 重写
@@ -30,4 +30,4 @@ public:
 	DECLARE_MESSAGE_MAP()
 };
 
-extern CE310App theApp;
+extern CE310T2App theApp;

@@ -1,15 +1,15 @@
 
-// E310Doc.cpp : CE310Doc 类的实现
+// E310T2Doc.cpp : CE310T2Doc 类的实现
 //
 
 #include "stdafx.h"
 // SHARED_HANDLERS 可以在实现预览、缩略图和搜索筛选器句柄的
 // ATL 项目中进行定义，并允许与该项目共享文档代码。
 #ifndef SHARED_HANDLERS
-#include "E310.h"
+#include "E310T2.h"
 #endif
 
-#include "E310Doc.h"
+#include "E310T2Doc.h"
 
 #include <propkey.h>
 
@@ -17,27 +17,29 @@
 #define new DEBUG_NEW
 #endif
 
-// CE310Doc
+// CE310T2Doc
 
-IMPLEMENT_DYNCREATE(CE310Doc, CDocument)
+IMPLEMENT_DYNCREATE(CE310T2Doc, CDocument)
 
-BEGIN_MESSAGE_MAP(CE310Doc, CDocument)
+BEGIN_MESSAGE_MAP(CE310T2Doc, CDocument)
 END_MESSAGE_MAP()
 
 
-// CE310Doc 构造/析构
+// CE310T2Doc 构造/析构
 
-CE310Doc::CE310Doc()
+CE310T2Doc::CE310T2Doc()
 {
 	// TODO: 在此添加一次性构造代码
-
+	A = 1;
+	B = 2;
+	s.Format(_T("A+B=%d"), A + B);
 }
 
-CE310Doc::~CE310Doc()
+CE310T2Doc::~CE310T2Doc()
 {
 }
 
-BOOL CE310Doc::OnNewDocument()
+BOOL CE310T2Doc::OnNewDocument()
 {
 	if (!CDocument::OnNewDocument())
 		return FALSE;
@@ -51,9 +53,9 @@ BOOL CE310Doc::OnNewDocument()
 
 
 
-// CE310Doc 序列化
+// CE310T2Doc 序列化
 
-void CE310Doc::Serialize(CArchive& ar)
+void CE310T2Doc::Serialize(CArchive& ar)
 {
 	if (ar.IsStoring())
 	{
@@ -68,7 +70,7 @@ void CE310Doc::Serialize(CArchive& ar)
 #ifdef SHARED_HANDLERS
 
 // 缩略图的支持
-void CE310Doc::OnDrawThumbnail(CDC& dc, LPRECT lprcBounds)
+void CE310T2Doc::OnDrawThumbnail(CDC& dc, LPRECT lprcBounds)
 {
 	// 修改此代码以绘制文档数据
 	dc.FillSolidRect(lprcBounds, RGB(255, 255, 255));
@@ -89,7 +91,7 @@ void CE310Doc::OnDrawThumbnail(CDC& dc, LPRECT lprcBounds)
 }
 
 // 搜索处理程序的支持
-void CE310Doc::InitializeSearchContent()
+void CE310T2Doc::InitializeSearchContent()
 {
 	CString strSearchContent;
 	// 从文档数据设置搜索内容。
@@ -99,7 +101,7 @@ void CE310Doc::InitializeSearchContent()
 	SetSearchContent(strSearchContent);
 }
 
-void CE310Doc::SetSearchContent(const CString& value)
+void CE310T2Doc::SetSearchContent(const CString& value)
 {
 	if (value.IsEmpty())
 	{
@@ -119,19 +121,19 @@ void CE310Doc::SetSearchContent(const CString& value)
 
 #endif // SHARED_HANDLERS
 
-// CE310Doc 诊断
+// CE310T2Doc 诊断
 
 #ifdef _DEBUG
-void CE310Doc::AssertValid() const
+void CE310T2Doc::AssertValid() const
 {
 	CDocument::AssertValid();
 }
 
-void CE310Doc::Dump(CDumpContext& dc) const
+void CE310T2Doc::Dump(CDumpContext& dc) const
 {
 	CDocument::Dump(dc);
 }
 #endif //_DEBUG
 
 
-// CE310Doc 命令
+// CE310T2Doc 命令

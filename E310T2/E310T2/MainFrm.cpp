@@ -3,7 +3,7 @@
 //
 
 #include "stdafx.h"
-#include "E310.h"
+#include "E310T2.h"
 
 #include "MainFrm.h"
 

@@ -1,19 +1,19 @@
 
-// E310View.h : CE310View 类的接口
+// E310T2View.h : CE310T2View 类的接口
 //
 
 #pragma once
 
 
-class CE310View : public CView
+class CE310T2View : public CView
 {
 protected: // 仅从序列化创建
-	CE310View();
-	DECLARE_DYNCREATE(CE310View)
+	CE310T2View();
+	DECLARE_DYNCREATE(CE310T2View)
 
 // 特性
 public:
-	CE310Doc* GetDocument() const;
+	CE310T2Doc* GetDocument() const;
 
 // 操作
 public:
@@ -26,7 +26,7 @@ protected:
 
 // 实现
 public:
-	virtual ~CE310View();
+	virtual ~CE310T2View();
 #ifdef _DEBUG
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;
@@ -39,11 +39,10 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
-	afx_msg void OnLButtonUp(UINT nFlags, CPoint point);
 };
 
-#ifndef _DEBUG  // E310View.cpp 中的调试版本
-inline CE310Doc* CE310View::GetDocument() const
-   { return reinterpret_cast<CE310Doc*>(m_pDocument); }
+#ifndef _DEBUG  // E310T2View.cpp 中的调试版本
+inline CE310T2Doc* CE310T2View::GetDocument() const
+   { return reinterpret_cast<CE310T2Doc*>(m_pDocument); }
 #endif
 
