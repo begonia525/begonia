@@ -32,7 +32,7 @@ CMFC317t1View::CMFC317t1View()
 	// TODO: 在此处添加构造代码
 	c.left = 200;
 	c.top = 200;
-	c.right =250;
+	c.right = 250;
 	c.bottom = 250;
 	set = true;
 }
@@ -59,13 +59,14 @@ void CMFC317t1View::OnDraw(CDC* pDC)
 		return;
 	GetClientRect(cr);
 
-	SetTimer(1, rand() % 500 + 80, NULL);
+	SetTimer(1,50, NULL);
 
 
-	
+
 	// TODO: 在此处为本机数据添加绘制代码
 	pDC->Ellipse(c);
-	//pDC->Rectangle(cr);
+	if (c.bottom >= cr.bottom)set = false;
+	if (c.top <= cr.top)set =true;
 
 }
 
@@ -97,11 +98,20 @@ CMFC317t1Doc* CMFC317t1View::GetDocument() const // 非调试版本是内联的
 void CMFC317t1View::OnTimer(UINT_PTR nIDEvent)
 {
 	// TODO: 在此添加消息处理程序代码和/或调用默认值
-	
-	   c.top += 10;
+	if(set)
+	{
+		c.top += 10;
 		c.bottom += 10;
+		Invalidate();
+}
+	else
+	{
+    c.top -= 10;
+	c.bottom -= 10;
+    Invalidate();
+	}
 		
-        Invalidate();
+      
 	
 		
 		
