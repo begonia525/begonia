@@ -59,6 +59,8 @@ void CMFC316View::OnDraw(CDC* pDC)
 	// TODO: 在此处为本机数据添加绘制代码
 	CRect cr(pDoc->c1.x, pDoc->c1.y, pDoc->c2.x, pDoc->c2.y);
 	pDC->Rectangle(cr);
+	//pDC->Ellipse(cr);
+	
 }
 
 
@@ -101,8 +103,8 @@ void CMFC316View::OnLButtonUp(UINT nFlags, CPoint point)
 	// TODO: 在此添加消息处理程序代码和/或调用默认值
 	CMFC316Doc*pDoc = GetDocument();
 	pDoc->c2 = point;
-	Invalidate();
-	
+//	Invalidate();
+	InvalidateRect(NULL, TRUE);
 	CView::OnLButtonUp(nFlags, point);
 }
 
@@ -110,11 +112,10 @@ void CMFC316View::OnLButtonUp(UINT nFlags, CPoint point)
 void CMFC316View::OnMouseMove(UINT nFlags, CPoint point)
 {
 	// TODO: 在此添加消息处理程序代码和/或调用默认值
-	CMFC316Doc*pDoc = GetDocument();
 	CClientDC dc(this);
 	CString s;
-	s.Format(_T("鼠标移动过程中的位置X=%d,Y=%d"), point.x, point.y);
+	s.Format(_T("鼠标移动过程中的位置 X=%d,Y=%d"), point.x, point.y);
 	dc.TextOutW(400, 20, s);
-	//pDoc->c = point;
+	
 	CView::OnMouseMove(nFlags, point);
 }

@@ -34,7 +34,6 @@ public:
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;
 #endif
-	CString s1, s2;
 	CPoint c1;
 	CPoint c2;
 protected:
