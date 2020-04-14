@@ -64,8 +64,8 @@ void CMFC0413t3¶¨Ê±Æ÷View::OnDraw(CDC* pDC)
 	pDC->Ellipse(c);
 	CRect rect;
 	GetClientRect(&rect);
-	if (c.right == 1000 )t = false;
-	if (c.left == 0)t = true;
+	if (c.right >= rect.right )t = false;
+	if (c.left <= rect.left)t = true;
 }
 
 
