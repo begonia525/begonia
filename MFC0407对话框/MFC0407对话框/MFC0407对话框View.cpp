@@ -24,6 +24,7 @@ IMPLEMENT_DYNCREATE(CMFC0407对话框View, CView)
 
 BEGIN_MESSAGE_MAP(CMFC0407对话框View, CView)
 	ON_COMMAND(ID_SHOWDLG, &CMFC0407对话框View::OnShowdlg)
+	ON_WM_LBUTTONDOWN()
 END_MESSAGE_MAP()
 
 // CMFC0407对话框View 构造/析构
@@ -48,7 +49,7 @@ BOOL CMFC0407对话框View::PreCreateWindow(CREATESTRUCT& cs)
 
 // CMFC0407对话框View 绘制
 
-void CMFC0407对话框View::OnDraw(CDC* /*pDC*/)
+void CMFC0407对话框View::OnDraw(CDC* pDC)
 {
 	CMFC0407对话框Doc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
@@ -56,6 +57,8 @@ void CMFC0407对话框View::OnDraw(CDC* /*pDC*/)
 		return;
 
 	// TODO: 在此处为本机数据添加绘制代码
+	
+	
 }
 
 
@@ -87,12 +90,22 @@ void CMFC0407对话框View::OnShowdlg()
 {
 	// TODO: 在此添加命令处理程序代码
 	Mydlg0 dlg;
-	int r = dlg.DoModal();
-	if (r == IDOK || r == IDCANCEL)
-	{
-		CClientDC dc(this);
-		CString s;
-		s.Format(_T("你已退出对话框......"));
-		dc.TextOutW(20,20,s);
-	}
+	 r = dlg.DoModal();
+	 CClientDC dc(this);
+	 if (r == IDOK || r == IDCANCEL)
+	 {
+		 CString s;
+		 s.Format(_T("你已退出对话框......"));
+		dc.TextOutW(20, 20, s);
+	 }
+	
+}
+
+
+void CMFC0407对话框View::OnLButtonDown(UINT nFlags, CPoint point)
+{
+	// TODO: 在此添加消息处理程序代码和/或调用默认值
+	Invalidate();
+
+	CView::OnLButtonDown(nFlags, point);
 }
