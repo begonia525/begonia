@@ -22,6 +22,7 @@
 IMPLEMENT_DYNCREATE(CMFC330View, CView)
 
 BEGIN_MESSAGE_MAP(CMFC330View, CView)
+	ON_COMMAND(ID_FILE_OPEN, &CMFC330View::OnFileOpen)
 END_MESSAGE_MAP()
 
 // CMFC330View 构造/析构
@@ -79,3 +80,44 @@ CMFC330Doc* CMFC330View::GetDocument() const // 非调试版本是内联的
 
 
 // CMFC330View 消息处理程序
+
+
+void CMFC330View::OnFileOpen()
+{
+	// TODO: 在此添加命令处理程序代码
+	CFileDialog cfd(true);
+	int r = cfd.DoModal();
+	CClientDC dc(this);
+	if (r == IDOK)
+	{
+		CString filename = cfd.GetPathName();
+	//	dc.TextOutW(200, 300, filename);
+		CImage img;
+		img.Load(filename);
+		//img.Draw(dc.m_hDC, 0, 0, img.GetWidth(), img.GetHeight());
+		int x, y, w, h;
+		CRect rect;
+		GetClientRect(&rect);
+
+		float rect_ratio = 1.0*rect.Width() / rect.Height();
+		float img_ratio = 1.0*img.GetWidth() / img.GetHeight();
+		if (rect_ratio > img_ratio)
+		{
+			h = rect.Height();
+			w = img_ratio*h;
+			x = (rect.Width() - w) / 2;
+			y = 0;
+		}
+		else
+		{
+			w = rect.Width();
+			h = w / img_ratio;
+			x = 0;
+			y = (rect.Height() - h) / 2;
+		}
+
+		img.Draw(dc.m_hDC, x, y, w, h);
+	
+	}
+
+}

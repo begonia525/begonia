@@ -154,7 +154,7 @@ protected:
 protected:
 	DECLARE_MESSAGE_MAP()
 public:
-	afx_msg void OnFileOpen();
+	//afx_msg void OnFileOpen();
 };
 
 CAboutDlg::CAboutDlg() : CDialogEx(IDD_ABOUTBOX)
@@ -167,7 +167,6 @@ void CAboutDlg::DoDataExchange(CDataExchange* pDX)
 }
 
 BEGIN_MESSAGE_MAP(CAboutDlg, CDialogEx)
-	ON_COMMAND(ID_FILE_OPEN, &CAboutDlg::OnFileOpen)
 END_MESSAGE_MAP()
 
 // 用于运行对话框的应用程序命令
@@ -183,20 +182,4 @@ void CMFC330App::OnAppAbout()
 
 
 
-void CAboutDlg::OnFileOpen()
-{
-	// TODO: 在此添加命令处理程序代码
-	CFileDialog cfd(true);
-	int r = cfd.DoModal();
-	CClientDC dc(this);
-	if (r == IDOK)
-	{
-        CString filename = cfd.GetPathName();
-		dc.TextOutW(20, 30, filename);
-		//CImage img;
-		//img.Load(filename);
-		//img.Draw(dc.m_hDC, 0, 0, img.GetWidth(), img.GetHeight());
-	}
-		
-	
-}
+

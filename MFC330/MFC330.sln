@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MFC330", "MFC330\MFC330.vcxproj", "{AD77719E-6AC2-469D-BECE-6EE4C703C697}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MFC331", "MFC331\MFC331.vcxproj", "{024E4CA6-AD59-4468-912D-CB76074BB620}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{AD77719E-6AC2-469D-BECE-6EE4C703C697}.Release|x64.Build.0 = Release|x64
 		{AD77719E-6AC2-469D-BECE-6EE4C703C697}.Release|x86.ActiveCfg = Release|Win32
 		{AD77719E-6AC2-469D-BECE-6EE4C703C697}.Release|x86.Build.0 = Release|Win32
+		{024E4CA6-AD59-4468-912D-CB76074BB620}.Debug|x64.ActiveCfg = Debug|x64
+		{024E4CA6-AD59-4468-912D-CB76074BB620}.Debug|x64.Build.0 = Debug|x64
+		{024E4CA6-AD59-4468-912D-CB76074BB620}.Debug|x86.ActiveCfg = Debug|Win32
+		{024E4CA6-AD59-4468-912D-CB76074BB620}.Debug|x86.Build.0 = Debug|Win32
+		{024E4CA6-AD59-4468-912D-CB76074BB620}.Release|x64.ActiveCfg = Release|x64
+		{024E4CA6-AD59-4468-912D-CB76074BB620}.Release|x64.Build.0 = Release|x64
+		{024E4CA6-AD59-4468-912D-CB76074BB620}.Release|x86.ActiveCfg = Release|Win32
+		{024E4CA6-AD59-4468-912D-CB76074BB620}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
