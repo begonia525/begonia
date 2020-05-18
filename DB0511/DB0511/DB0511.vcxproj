@@ -193,6 +193,7 @@
     <ClInclude Include="DB0511Doc.h" />
     <ClInclude Include="DB0511Set.h" />
     <ClInclude Include="DB0511View.h" />
+    <ClInclude Include="Dlg0.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
@@ -203,6 +204,7 @@
     <ClCompile Include="DB0511Doc.cpp" />
     <ClCompile Include="DB0511Set.cpp" />
     <ClCompile Include="DB0511View.cpp" />
+    <ClCompile Include="Dlg0.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

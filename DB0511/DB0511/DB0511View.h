@@ -18,13 +18,15 @@ public:
 #endif
 	CDB0511Set* m_pSet;
 	CString path;
+	
 // 特性
 public:
 	CDB0511Doc* GetDocument() const;
 	void draw_pic(CString file);
+	
 // 操作
 public:
-
+	CString filename;
 // 重写
 public:
 	virtual CRecordset* OnGetRecordset();
@@ -52,6 +54,8 @@ public:
 	afx_msg void OnRecordPrev();
 	afx_msg void OnRecordNext();
 	afx_msg void OnRecordLast();
+	afx_msg void OnBnClickedButton1();
+	afx_msg void OnPaint();
 };
 
 #ifndef _DEBUG  // DB0511View.cpp 中的调试版本

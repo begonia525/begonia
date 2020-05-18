@@ -12,6 +12,7 @@
 #include "DB0511Set.h"
 #include "DB0511Doc.h"
 #include "DB0511View.h"
+#include"Dlg0.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -27,6 +28,8 @@ BEGIN_MESSAGE_MAP(CDB0511View, CRecordView)
 	ON_COMMAND(ID_RECORD_PREV, &CDB0511View::OnRecordPrev)
 	ON_COMMAND(ID_RECORD_NEXT, &CDB0511View::OnRecordNext)
 	ON_COMMAND(ID_RECORD_LAST, &CDB0511View::OnRecordLast)
+	ON_BN_CLICKED(IDC_BUTTON1, &CDB0511View::OnBnClickedButton1)
+	ON_WM_PAINT()
 END_MESSAGE_MAP()
 
 // CDB0511View 构造/析构
@@ -108,9 +111,10 @@ void CDB0511View::OnRecordFirst()
 	// TODO: 在此添加命令处理程序代码
 	m_pSet->MoveFirst();
 	UpdateData(false);
-	CString filename,s;
-	GetDlgItemText(IDC_EDIT1, s);
+	CString s;
+	GetDlgItemText(IDC_EDIT1, s);//获取对话框编辑控件的内容
 	filename = path + s;
+	//Invalidate();
 	draw_pic(filename);
 }
 
@@ -122,11 +126,11 @@ void CDB0511View::OnRecordPrev()
 	if (m_pSet->IsBOF())
 		m_pSet->MoveFirst();
 	UpdateData(false);
-	CString filename, s;
+	CString  s;
 	GetDlgItemText(IDC_EDIT1, s);
 	filename = path + s;
 	draw_pic(filename);
-	
+	Invalidate();
 }
 
 
@@ -137,10 +141,11 @@ void CDB0511View::OnRecordNext()
 	if (m_pSet->IsEOF())
 		m_pSet->MoveLast();
 	UpdateData(false);
-	CString filename, s;
+	CString s;
 	GetDlgItemText(IDC_EDIT1, s);
 	filename = path + s;
 	draw_pic(filename);
+//	Invalidate();
 }
 
 
@@ -149,10 +154,12 @@ void CDB0511View::OnRecordLast()
 	// TODO: 在此添加命令处理程序代码
 	m_pSet->MoveLast();
 	UpdateData(false);
-	CString filename, s;
+	CString  s;
 	GetDlgItemText(IDC_EDIT1, s);
 	filename = path + s;
 	draw_pic(filename);
+	//Invalidate();
+	
 }
 void CDB0511View::draw_pic(CString file)
 {
@@ -183,4 +190,27 @@ void CDB0511View::draw_pic(CString file)
 	img.Draw(pDC->m_hDC, x, y, w, h);
 	ReleaseDC(pDC);
 
+}
+
+
+void CDB0511View::OnBnClickedButton1()
+{
+	// TODO: 在此添加控件通知处理程序代码
+	Dlg0 dlg0;
+	dlg0.name = filename;
+	int r = dlg0.DoModal();
+	if (r == IDOK)
+	{
+		
+
+	}
+}
+
+
+void CDB0511View::OnPaint()
+{
+	CPaintDC dc(this); // device context for painting
+					   // TODO: 在此处添加消息处理程序代码
+	//draw_pic(filename);
+					   // 不为绘图消息调用 CRecordView::OnPaint()
 }
