@@ -148,7 +148,7 @@ void C基于对话框图片查看2Dlg::OnPaint()
 
 	CString name;
 	
-	name = _T("C:\\Users\\黄飞飞的电脑\\Desktop\\花");
+	name = _T("C:\\Users\\黄飞飞的电脑\\Pictures\\Saved Pictures\\a.jpg");
 	CImage image;
 	image.Load(name);
 	//CDC*pDC = GetDC();
