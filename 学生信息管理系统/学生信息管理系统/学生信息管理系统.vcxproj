@@ -189,7 +189,11 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ADDdlg.h" />
+    <ClInclude Include="ChangeDlg.h" />
     <ClInclude Include="MainFrm.h" />
+    <ClInclude Include="MyAddDlg.h" />
+    <ClInclude Include="MyChangeDlg.h" />
     <ClInclude Include="Mydlg.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
@@ -200,7 +204,11 @@
     <ClInclude Include="学生信息管理系统View.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ADDdlg.cpp" />
+    <ClCompile Include="ChangeDlg.cpp" />
     <ClCompile Include="MainFrm.cpp" />
+    <ClCompile Include="MyAddDlg.cpp" />
+    <ClCompile Include="MyChangeDlg.cpp" />
     <ClCompile Include="Mydlg.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

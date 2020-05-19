@@ -13,7 +13,10 @@
 #include "学生信息管理系统Doc.h"
 #include "学生信息管理系统View.h"
 #include"Mydlg.h";
-
+#include"ADDdlg.h"
+#include"ChangeDlg.h"
+#include"MyAddDlg.h"
+#include"MyChangeDlg.h"
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -32,6 +35,9 @@ BEGIN_MESSAGE_MAP(C学生信息管理系统View, CRecordView)
 	ON_COMMAND(ID_RECORD_LAST, &C学生信息管理系统View::OnRecordLast)
 	ON_WM_PAINT()
 	ON_BN_CLICKED(IDC_BUTTON1, &C学生信息管理系统View::OnBnClickedButton1)
+	ON_BN_CLICKED(IDC_DELETE, &C学生信息管理系统View::OnBnClickedDelete)
+	ON_BN_CLICKED(IDC_ADD, &C学生信息管理系统View::OnBnClickedAdd)
+	ON_BN_CLICKED(IDC_BUTTON3, &C学生信息管理系统View::OnBnClickedButton3)
 END_MESSAGE_MAP()
 
 // C学生信息管理系统View 构造/析构
@@ -276,4 +282,86 @@ void C学生信息管理系统View::OnBnClickedButton1()
 
 	}
 	
+}
+
+
+void C学生信息管理系统View::OnBnClickedDelete()
+{
+	// TODO: 在此添加控件通知处理程序代码
+	m_pSet->Delete();
+	m_pSet->MovePrev();
+	if (m_pSet->IsBOF())
+		m_pSet->MoveFirst();
+	UpdateData(false);
+}
+
+
+void C学生信息管理系统View::OnBnClickedAdd()//增加
+{
+	// TODO: 在此添加控件通知处理程序代码
+	MyAddDlg dlg;
+	int r = dlg.DoModal();
+	if (r == IDOK)
+	{   
+		CString a, b, c, d, e, f, g,h;
+		a = dlg.a;
+		b = dlg.b;
+		c = dlg.c;
+		d = dlg.d;
+		e = dlg.e;
+		f = dlg.f;
+		g = dlg.g;
+		h = dlg.h;
+		m_pSet->AddNew();
+		m_pSet->column1 = a;
+		m_pSet->column2 = b;
+		m_pSet->column3 = c;
+		m_pSet->column4 = d;
+		m_pSet->column5 = e;
+		m_pSet->column6 = f;
+		m_pSet->column7 = g;
+		m_pSet->column8 = h;
+		m_pSet->Update();
+		UpdateData(false);
+	}
+}
+
+
+void C学生信息管理系统View::OnBnClickedButton3()//删除
+{
+	// TODO: 在此添加控件通知处理程序代码
+	
+	CString s1, s2, s3, s4, s5, s6, s7, s8;
+	GetDlgItemText(IDC_EDIT1, s1);
+	GetDlgItemText(IDC_EDIT2, s2);
+	GetDlgItemText(IDC_EDIT3, s3);
+	GetDlgItemText(IDC_EDIT4, s4);
+	GetDlgItemText(IDC_EDIT5, s5);
+	GetDlgItemText(IDC_EDIT6, s6);
+	GetDlgItemText(IDC_EDIT7, s7);
+	GetDlgItemText(IDC_EDIT8, s8);
+	MyChangeDlg mydlg;
+	mydlg.a = s1;
+	mydlg.b = s2;
+	mydlg.c = s3;
+	mydlg.d = s4;
+	mydlg.e = s5;
+	mydlg.f = s6;
+	mydlg.g = s7;
+	mydlg.h = s8;
+	int r = mydlg.DoModal();
+	if (r == IDOK)
+	{
+		m_pSet->Edit();
+		m_pSet->column1 = mydlg.a;
+		m_pSet->column2 = mydlg.b;
+		m_pSet->column3 = mydlg.c;
+		m_pSet->column4 = mydlg.d;
+		m_pSet->column5 = mydlg.e;
+		m_pSet->column6 = mydlg.f;
+		m_pSet->column7 = mydlg.g;
+		m_pSet->column8 = mydlg.h;
+		m_pSet->Update();
+		UpdateData(false);
+	}
 }

@@ -64,6 +64,9 @@ public:
 	afx_msg void OnRecordLast();
 	afx_msg void OnPaint();
 	afx_msg void OnBnClickedButton1();
+	afx_msg void OnBnClickedDelete();
+	afx_msg void OnBnClickedAdd();
+	afx_msg void OnBnClickedButton3();
 };
 
 #ifndef _DEBUG  // 学生信息管理系统View.cpp 中的调试版本
