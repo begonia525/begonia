@@ -4,7 +4,7 @@
 
 // ADDdlg ¶Ô»°¿ò
 
-class ADDdlg : public CDialogEx
+/*class ADDdlg : public CDialogEx
 {
 	DECLARE_DYNAMIC(ADDdlg)
 
@@ -36,3 +36,4 @@ public:
 	afx_msg void OnEnChangeEdit4();
 	afx_msg void OnEnChangeEdit7();
 };
+*/

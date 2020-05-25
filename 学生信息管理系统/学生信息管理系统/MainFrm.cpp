@@ -22,6 +22,7 @@ END_MESSAGE_MAP()
 static UINT indicators[] =
 {
 	ID_SEPARATOR,           // ×´Ì¬ÐÐÖ¸Ê¾Æ÷
+	//ID_SEPARATOR,
 	ID_INDICATOR_CAPS,
 	ID_INDICATOR_NUM,
 	ID_INDICATOR_SCRL,

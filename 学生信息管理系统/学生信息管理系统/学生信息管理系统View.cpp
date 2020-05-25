@@ -12,9 +12,7 @@
 #include "学生信息管理系统Set.h"
 #include "学生信息管理系统Doc.h"
 #include "学生信息管理系统View.h"
-#include"Mydlg.h";
-#include"ADDdlg.h"
-#include"ChangeDlg.h"
+#include"Mydlg.h"
 #include"MyAddDlg.h"
 #include"MyChangeDlg.h"
 #ifdef _DEBUG
@@ -38,6 +36,10 @@ BEGIN_MESSAGE_MAP(C学生信息管理系统View, CRecordView)
 	ON_BN_CLICKED(IDC_DELETE, &C学生信息管理系统View::OnBnClickedDelete)
 	ON_BN_CLICKED(IDC_ADD, &C学生信息管理系统View::OnBnClickedAdd)
 	ON_BN_CLICKED(IDC_BUTTON3, &C学生信息管理系统View::OnBnClickedButton3)
+	ON_EN_CHANGE(IDC_EDIT7, &C学生信息管理系统View::OnEnChangeEdit7)
+	ON_BN_CLICKED(IDC_BUTTON2, &C学生信息管理系统View::OnBnClickedButton2)
+	ON_BN_CLICKED(IDC_BUTTON4, &C学生信息管理系统View::OnBnClickedButton4)
+	ON_BN_CLICKED(IDC_BUTTON5, &C学生信息管理系统View::OnBnClickedButton5)
 END_MESSAGE_MAP()
 
 // C学生信息管理系统View 构造/析构
@@ -52,6 +54,8 @@ C学生信息管理系统View::C学生信息管理系统View()
 	, phone(_T(""))
 	, home(_T(""))
 	, picture(_T(""))
+	, checksno(_T(""))
+	, sort(_T(""))
 {
 	m_pSet = NULL;
 	// TODO: 在此处添加构造代码
@@ -77,6 +81,8 @@ void C学生信息管理系统View::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT6, m_pSet->column6);
 	DDX_Text(pDX, IDC_EDIT7, m_pSet->column7);
 	DDX_Text(pDX, IDC_EDIT8, m_pSet->column8);
+	DDX_Text(pDX, IDC_EDIT9, checksno);
+	DDX_Text(pDX, IDC_EDIT10, sort);
 }
 
 BOOL C学生信息管理系统View::PreCreateWindow(CREATESTRUCT& cs)
@@ -151,57 +157,56 @@ void C学生信息管理系统View::OnEnChangeEdit6()
 
 void C学生信息管理系统View::OnRecordFirst()
 {
-	// TODO: 在此添加命令处理程序代码
+	
 	m_pSet->MoveFirst();
 	UpdateData(false);
-	CString s;
 	GetDlgItemText(IDC_EDIT8, s);//获取对话框编辑控件的内容
 	filename = path + s;
-//	Invalidate();
-	draw_pic(filename);
+	Invalidate();
+	//draw_pic(filename);
 }
 
 
 void C学生信息管理系统View::OnRecordPrev()
 {
-	// TODO: 在此添加命令处理程序代码
+	
 	m_pSet->MovePrev();
 	if (m_pSet->IsBOF())
 		m_pSet->MoveFirst();
 	UpdateData(false);
-	CString  s;
 	GetDlgItemText(IDC_EDIT8, s);
 	filename = path + s;
-	draw_pic(filename);
-	//Invalidate();
+	//draw_pic(filename);
+	Invalidate();
+	
 }
 
 
 void C学生信息管理系统View::OnRecordNext()
 {
-	// TODO: 在此添加命令处理程序代码
+	
 	m_pSet->MoveNext();
 	if (m_pSet->IsEOF())
 		m_pSet->MoveLast();
 	UpdateData(false);
-	CString s;
 	GetDlgItemText(IDC_EDIT8, s);
 	filename = path + s;
-	draw_pic(filename);
-		//Invalidate();
+	//draw_pic(filename);
+	Invalidate();
+
 }
 
 
 void C学生信息管理系统View::OnRecordLast()
 {
-	// TODO: 在此添加命令处理程序代码
+	
 	m_pSet->MoveLast();
 	UpdateData(false);
-	CString  s;
 	GetDlgItemText(IDC_EDIT8, s);
 	filename = path + s;
-	draw_pic(filename);
-	//Invalidate();
+	//draw_pic(filename);
+	Invalidate();
+	
 }
 
 void C学生信息管理系统View::draw_pic(CString file)
@@ -240,38 +245,15 @@ void C学生信息管理系统View::OnPaint()
 	CPaintDC dc(this); // device context for painting
 					   // TODO: 在此处添加消息处理程序代码
 					   // 不为绘图消息调用 CRecordView::OnPaint()
-	/*CImage img;
-	img.Load(filename);
-	CDC*pDC = GetDlgItem(IDC_STATIC)->GetDC();
-	img.Draw(pDC->m_hDC, 0, 0, img.GetWidth(), img.GetHeight());
 	
-	int x, y, w, h;
-	CRect rect;
-	GetDlgItem(IDC_STATIC)->GetClientRect(&rect);
-
-	float rect_ratio = 1.0*rect.Width() / rect.Height();
-	float img_ratio = 1.0*img.GetWidth() / img.GetHeight();
-	if (rect_ratio > img_ratio)
-	{
-		h = rect.Height();
-		w = img_ratio*h;
-		x = (rect.Width() - w) / 2;
-		y = 0;
-	}
-	else
-	{
-		w = rect.Width();
-		h = w / img_ratio;
-		x = 0;
-		y = (rect.Height() - h) / 2;
-	}
-	pDC->SetStretchBltMode(HALFTONE);
-	img.Draw(pDC->m_hDC, x, y, w, h);
-	ReleaseDC(pDC);*/
+	GetDlgItemText(IDC_EDIT8, s);
+	filename = path + s;
+	draw_pic(filename);
+	
 }
 
 
-void C学生信息管理系统View::OnBnClickedButton1()
+void C学生信息管理系统View::OnBnClickedButton1()//放大照片，弹出对话框
 {
 	// TODO: 在此添加控件通知处理程序代码
 	Mydlg dlg;
@@ -285,7 +267,7 @@ void C学生信息管理系统View::OnBnClickedButton1()
 }
 
 
-void C学生信息管理系统View::OnBnClickedDelete()
+void C学生信息管理系统View::OnBnClickedDelete()//删除
 {
 	// TODO: 在此添加控件通知处理程序代码
 	m_pSet->Delete();
@@ -327,12 +309,12 @@ void C学生信息管理系统View::OnBnClickedAdd()//增加
 }
 
 
-void C学生信息管理系统View::OnBnClickedButton3()//删除
+void C学生信息管理系统View::OnBnClickedButton3()//修改
 {
 	// TODO: 在此添加控件通知处理程序代码
 	
 	CString s1, s2, s3, s4, s5, s6, s7, s8;
-	GetDlgItemText(IDC_EDIT1, s1);
+	GetDlgItemText(IDC_EDIT1, s1);//获取编辑控件ID为IDC_EDIT1的信息
 	GetDlgItemText(IDC_EDIT2, s2);
 	GetDlgItemText(IDC_EDIT3, s3);
 	GetDlgItemText(IDC_EDIT4, s4);
@@ -364,4 +346,76 @@ void C学生信息管理系统View::OnBnClickedButton3()//删除
 		m_pSet->Update();
 		UpdateData(false);
 	}
+}
+
+
+void C学生信息管理系统View::OnEnChangeEdit7()
+{
+	// TODO:  如果该控件是 RICHEDIT 控件，它将不
+	// 发送此通知，除非重写 CRecordView::OnInitDialog()
+	// 函数并调用 CRichEditCtrl().SetEventMask()，
+	// 同时将 ENM_CHANGE 标志“或”运算到掩码中。
+
+	// TODO:  在此添加控件通知处理程序代码
+}
+
+
+void C学生信息管理系统View::OnBnClickedButton2()//查询
+{
+	
+	UpdateData();
+	checksno.TrimLeft();
+	if (checksno.IsEmpty())
+	{
+		MessageBox(_T("要查询的学号不能为空！")); return;
+	}
+	if (m_pSet->IsOpen())
+		m_pSet->Close();
+	m_pSet->m_strFilter.Format(checksno);//在编辑控件输入的格式为：学号>='2018123002'
+	//m_pSet->m_strFilter = "学号>='2018123002' ";
+	m_pSet->m_strSort = "学号";
+	//m_pSet->Requery();
+	m_pSet->Open();
+	if (!m_pSet->IsEOF()){Invalidate();
+	    UpdateData(FALSE);}
+		
+	else MessageBox(_T("没有你要找的学号记录！"));
+	
+}
+
+
+void C学生信息管理系统View::OnBnClickedButton4()//恢复
+{
+	// TODO: 在此添加控件通知处理程序代码
+	if (m_pSet->IsOpen())
+	{
+		m_pSet->Close();
+	}
+	m_pSet->m_strFilter ="学号>='2018123001' ";
+	//m_pSet->Requery();
+	m_pSet->Open();
+	UpdateData(FALSE);
+	
+}
+
+
+void C学生信息管理系统View::OnBnClickedButton5()//排序
+{
+	// TODO: 在此添加控件通知处理程序代码
+	UpdateData();
+	sort.TrimLeft();
+	if (sort.IsEmpty())
+	{
+		MessageBox(_T("请输入需要排序的信息！")); return;
+	}
+	if (m_pSet->IsOpen())
+		m_pSet->Close();
+	m_pSet->m_strSort.Format(sort);
+	m_pSet->Open();
+	if (!m_pSet->IsEOF()) {
+		Invalidate();
+		UpdateData(FALSE);
+	}
+
+	else MessageBox(_T("没有你要找的学号记录！"));
 }

@@ -19,6 +19,7 @@ public:
 	C学生信息管理系统Set* m_pSet;
 	CString path;
 	CString filename;
+	CString s;
 // 特性
 public:
 	C学生信息管理系统Doc* GetDocument() const;
@@ -67,6 +68,12 @@ public:
 	afx_msg void OnBnClickedDelete();
 	afx_msg void OnBnClickedAdd();
 	afx_msg void OnBnClickedButton3();
+	afx_msg void OnEnChangeEdit7();
+	CString checksno;
+	afx_msg void OnBnClickedButton2();
+	afx_msg void OnBnClickedButton4();
+	CString sort;
+	afx_msg void OnBnClickedButton5();
 };
 
 #ifndef _DEBUG  // 学生信息管理系统View.cpp 中的调试版本
