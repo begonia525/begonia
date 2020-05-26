@@ -430,8 +430,8 @@ void C学生信息管理系统View::OnBnClickedButton6()//查看记录集
 {
 	LookMDlg dlg;
 	CStringArray str;
-	//CString str0,str2;
 	
+	m_pSet->MoveFirst();
 	while (!m_pSet->IsEOF())
 	{
 		CString str1;
@@ -443,7 +443,7 @@ void C学生信息管理系统View::OnBnClickedButton6()//查看记录集
 			
 		}str.Add(str1);
 		m_pSet->MoveNext();
-	}m_pSet->MoveFirst();
+	}
 		
 	for (int j = 0; j < str.GetSize(); j++)
 	{
