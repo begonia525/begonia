@@ -74,6 +74,7 @@ public:
 	afx_msg void OnBnClickedButton4();
 	CString sort;
 	afx_msg void OnBnClickedButton5();
+	afx_msg void OnBnClickedButton6();
 };
 
 #ifndef _DEBUG  // 学生信息管理系统View.cpp 中的调试版本

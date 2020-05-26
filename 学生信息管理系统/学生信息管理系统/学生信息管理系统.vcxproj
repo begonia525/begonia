@@ -191,6 +191,7 @@
   <ItemGroup>
     <ClInclude Include="ADDdlg.h" />
     <ClInclude Include="ChangeDlg.h" />
+    <ClInclude Include="LookMDlg.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="MyAddDlg.h" />
     <ClInclude Include="MyChangeDlg.h" />
@@ -206,6 +207,7 @@
   <ItemGroup>
     <ClCompile Include="ADDdlg.cpp" />
     <ClCompile Include="ChangeDlg.cpp" />
+    <ClCompile Include="LookMDlg.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="MyAddDlg.cpp" />
     <ClCompile Include="MyChangeDlg.cpp" />

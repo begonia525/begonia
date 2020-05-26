@@ -15,6 +15,7 @@
 #include"Mydlg.h"
 #include"MyAddDlg.h"
 #include"MyChangeDlg.h"
+#include"LookMDlg.h"
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -40,6 +41,7 @@ BEGIN_MESSAGE_MAP(C学生信息管理系统View, CRecordView)
 	ON_BN_CLICKED(IDC_BUTTON2, &C学生信息管理系统View::OnBnClickedButton2)
 	ON_BN_CLICKED(IDC_BUTTON4, &C学生信息管理系统View::OnBnClickedButton4)
 	ON_BN_CLICKED(IDC_BUTTON5, &C学生信息管理系统View::OnBnClickedButton5)
+	ON_BN_CLICKED(IDC_BUTTON6, &C学生信息管理系统View::OnBnClickedButton6)
 END_MESSAGE_MAP()
 
 // C学生信息管理系统View 构造/析构
@@ -367,26 +369,28 @@ void C学生信息管理系统View::OnBnClickedButton2()//查询
 	checksno.TrimLeft();
 	if (checksno.IsEmpty())
 	{
-		MessageBox(_T("要查询的学号不能为空！")); return;
+		MessageBox(_T("请输入需要查询的信息！")); return;
 	}
 	if (m_pSet->IsOpen())
 		m_pSet->Close();
 	m_pSet->m_strFilter.Format(checksno);//在编辑控件输入的格式为：学号>='2018123002'
-	//m_pSet->m_strFilter = "学号>='2018123002' ";
 	m_pSet->m_strSort = "学号";
 	//m_pSet->Requery();
 	m_pSet->Open();
-	if (!m_pSet->IsEOF()){Invalidate();
-	    UpdateData(FALSE);}
+	if (!m_pSet->IsEOF())
+	{
+		Invalidate();
+	    UpdateData(FALSE);
+	}
 		
-	else MessageBox(_T("没有你要找的学号记录！"));
+	else MessageBox(_T("没有你要找的信息记录！"));
 	
 }
 
 
 void C学生信息管理系统View::OnBnClickedButton4()//恢复
 {
-	// TODO: 在此添加控件通知处理程序代码
+	
 	if (m_pSet->IsOpen())
 	{
 		m_pSet->Close();
@@ -395,13 +399,14 @@ void C学生信息管理系统View::OnBnClickedButton4()//恢复
 	//m_pSet->Requery();
 	m_pSet->Open();
 	UpdateData(FALSE);
+	Invalidate();
 	
 }
 
 
 void C学生信息管理系统View::OnBnClickedButton5()//排序
 {
-	// TODO: 在此添加控件通知处理程序代码
+	
 	UpdateData();
 	sort.TrimLeft();
 	if (sort.IsEmpty())
@@ -417,5 +422,36 @@ void C学生信息管理系统View::OnBnClickedButton5()//排序
 		UpdateData(FALSE);
 	}
 
-	else MessageBox(_T("没有你要找的学号记录！"));
+	else MessageBox(_T("请输入正确的信息！"));
+}
+
+
+void C学生信息管理系统View::OnBnClickedButton6()//查看记录集
+{
+	LookMDlg dlg;
+	CStringArray str;
+	//CString str0,str2;
+	
+	while (!m_pSet->IsEOF())
+	{
+		CString str1;
+   for (int i = 1; i <= m_pSet->GetODBCFieldCount() - 1; i++)
+		{
+	     CString str0;
+			m_pSet->GetFieldValue((short)i, str0);
+			str1 += str0;
+			
+		}str.Add(str1);
+		m_pSet->MoveNext();
+	}m_pSet->MoveFirst();
+		
+	for (int j = 0; j < str.GetSize(); j++)
+	{
+		dlg.str0.Add(str[j]);
+		}
+	
+	if (dlg.DoModal())
+	{
+
+	}
 }

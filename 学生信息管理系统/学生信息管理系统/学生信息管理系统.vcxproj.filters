@@ -57,6 +57,9 @@
     <ClInclude Include="MyChangeDlg.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="LookMDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="学生信息管理系统.cpp">
@@ -90,6 +93,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="MyChangeDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="LookMDlg.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
