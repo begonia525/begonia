@@ -14,6 +14,7 @@ IMPLEMENT_DYNAMIC(Dlg0, CDialogEx)
 
 Dlg0::Dlg0(CWnd* pParent /*=NULL*/)
 	: CDialogEx(IDD_DIALOG1, pParent)
+	, str0(_T(""))
 {
 
 }
@@ -26,6 +27,7 @@ void Dlg0::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_LIST1, abc);
+	DDX_Text(pDX, IDC_EDIT1, str0);
 }
 
 
@@ -40,13 +42,8 @@ END_MESSAGE_MAP()
 BOOL Dlg0::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
-
-	// TODO:  在此添加额外的初始化
-	CString filename;
-	filename = _T("不懂怎么把文件名放在列表框里");
-	abc.AddString(filename);
-	abc.AddString(_T("不懂怎么把文件名放在列表框里"));
-	abc.AddString(_T("烦啊"));
+	abc.AddString(str0);
+	
 	return TRUE;  // return TRUE unless you set the focus to a control
 				  // 异常: OCX 属性页应返回 FALSE
 }
@@ -56,5 +53,5 @@ void Dlg0::OnBnClickedButton1()
 {
 	// TODO: 在此添加控件通知处理程序代码
 	int n = abc.GetCurSel();
-	abc.GetText(n, str);
+	//abc.GetText(n, str);
 }

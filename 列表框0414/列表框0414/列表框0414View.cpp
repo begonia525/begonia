@@ -92,15 +92,20 @@ void C列表框0414View::OnLButtonDblClk(UINT nFlags, CPoint point)
 	// TODO: 在此添加消息处理程序代码和/或调用默认值
 	CFileDialog dlg(true);
 	int r = dlg.DoModal();
+	
+	
 	CClientDC dc(this);
 	C列表框0414Doc*pDoc = GetDocument();
-	pDoc->name = dlg.GetPathName();
+	name0 = dlg.GetPathName();
 	if (r == IDOK)
 	{
 
-		dc.TextOutW(200, 200, pDoc->name);
+		dc.TextOutW(200, 200, name0);
+		//Dlg0 dlg0;
+	    //dlg0.str0 = dlg.GetPathName();
+		//int r = dlg0.DoModal();
 	}
-
+	
 	CView::OnLButtonDblClk(nFlags, point);
 }
 
@@ -118,9 +123,10 @@ void C列表框0414View::On32771()
 	// TODO: 在此添加命令处理程序代码
 	C列表框0414Doc*pDoc = GetDocument();
 	Dlg0 dlg;
+	dlg.str0 = name0;
 	int r = dlg.DoModal();
 	if (r == IDOK)
 	{
-		GetDC()->TextOutW(300, 400, dlg.str);
+		
 	}
 }

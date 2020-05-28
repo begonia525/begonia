@@ -16,7 +16,7 @@ public:
 #ifdef AFX_DESIGN_TIME
 	enum { IDD = IDD_DIALOG1 };
 #endif
-	CString str;
+
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV Ö§³Ö
 
@@ -25,4 +25,5 @@ public:
 	CListBox abc;
 	virtual BOOL OnInitDialog();
 	afx_msg void OnBnClickedButton1();
+	CString str0;
 };
