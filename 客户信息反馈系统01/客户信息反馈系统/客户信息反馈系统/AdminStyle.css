@@ -1,0 +1,30 @@
+﻿body {
+    font-weight:600;
+   background-image:url("oh.jpg") ;
+  
+}
+
+
+table{
+
+   border:1px solid #cad9ea;
+	color:navy;
+    /*background-color:burlywood;*/
+    background-image: url(background1.gif);
+
+}
+table th /*,table.t1 tr*/{
+	background-image: url(background4.gif);
+	background-repeat:repeat-x;
+    /*border:3px solid #0026ff;*/
+   
+	height:40px;
+}
+table td{
+	/*border:5px solid #0026ff;*/
+    /*border: 1px solid #b6ff00;*/
+    	/*background-image: url(background1.gif);*/
+        height:30px;
+	padding:0 1em 0;
+}
+

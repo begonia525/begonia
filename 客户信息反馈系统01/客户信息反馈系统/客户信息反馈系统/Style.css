@@ -1,0 +1,82 @@
+﻿body {
+   font-weight:600;
+   background-image:url("/tangyuan.gif") ;
+   /*background-size:cover;*/
+}
+
+table{
+   
+   color:black;
+   
+}
+.bt{
+    color:blue;
+}
+ .box{
+       
+        
+       
+        text-align: center;/*让文字水平居中*/
+         line-height: 50px;
+    }
+div.center{
+    text-align: center;
+  
+
+    border-radius: 20px;
+    width: 300px;
+    height: 350px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+   box-shadow: 0 15px 20px rgba(0, 0, 0, 0.6);
+   /*box-shadow: 0 15px 20px #cad9ea;*/
+
+ }
+div.center1{
+    text-align: center;
+   background-image:url(dongtu.gif);
+
+    border-radius: 20px;
+    width: 300px;
+    height: 350px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.05);
+     box-shadow: 5px 5px grey;
+ }
+
+table.t1{
+
+   border:1px solid #cad9ea;
+	color:navy;
+    background-image: url(background1.gif);
+    
+
+}
+table.t1 th {
+	
+   background-image: url(background4.gif);
+	/*background-repeat:repeat-x;*/
+    /*border:5px solid #0026ff;*/
+   
+	height:30px;
+}
+
+table.t1 tr{
+    
+}
+table.t1 td{
+	/*border:5px solid #0026ff;*/
+    border: 1px solid #b6ff00;
+	padding:0 1em 0;
+}
+
+
+
+ 
+
+
